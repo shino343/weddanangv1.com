@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Web Đa Năng v1</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('https://static.zerochan.net/Takanashi.Hoshino.full.4173900.jpg'); /* 👈 Ảnh nền */
+      background-size: cover;
+      background-position: center;
+      color: white;
+    }
+
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .navbar h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .search-box input {
+      padding: 8px 15px;
+      border-radius: 20px;
+      border: none;
+      width: 200px;
+    }
+
+    .container {
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    .floating-img {
+      width: 150px;
+      height: 150px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0); }
+    }
+
+    .btn1 {
+      padding: 15px 30px;
+      font-size: 18px;
+      margin-top: 20px;
+      background-color: #007bff;
+      border: none;
+      border-radius: 12px;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn1:hover {
+      background-color: #0056b3;
+    }
+    .btn2 {
+      padding: 15px 30px;
+      font-size: 18px;
+      margin-top: 20px;
+      background-color: #007bff;
+      border: none;
+      border-radius: 12px;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn2:hover {
+      background-color: #0056b3;
+    }
+
+    .widgets {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 15px;
+      backdrop-filter: blur(8px);
+      display: flex;
+      gap: 10px;
+    }
+
+    .widget-item {
+      background-color: #ffffff22;
+      padding: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .widget-item:hover {
+      background-color: #ffffff44;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Thanh điều hướng -->
+  <div class="navbar">
+    <h1>Trang Của Bạn</h1>
+    <div class="search-box">
+      <form onsubmit="return timKiemGoogle()">
+        <input type="text" id="tuKhoa" placeholder="Tìm kiếm với Google...">
+      </form>
+    </div>
+  </div>
+
+  <!-- Nội dung chính -->
+  <div class="container">
+    <h2>Chào mừng đến với trang web!</h2>
+    <img src="https://media.giphy.com/media/du3J3cXyzhj75IOgvA/giphy.gif" alt="Ảnh động" class="floating-img">
+    <br>
+    <button class="btn1" onclick="chuyenTrang1()">Đi đến Roblox</button>
+    <button class="btn2" onclick="chuyenTrang2()">youtube</button>
+</div>
+
+  <!-- Thanh tiện ích -->
+  <div class="widgets">
+    <div class="widget-item" onclick="window.location.href='https://support.google.com/accounts/answer/3118621?hl=vi'">⚙️</div>
+    <div class="widget-item" onclick="window.location.href='https://mail.google.com'">📨</div>
+    <div class="widget-item" onclick="window.location.href='https://www.youtube.com'">🔔</div>
+  </div>
+
+  <!-- Script -->
+  <script>
+    function chuyenTrang1() {
+      window.location.href = "https://www.roblox.com";
+    };
+    function chuyenTrang2() {
+      window.location.href = "https://www.youtube.com";
+    }
+
+    function timKiemGoogle() {
+      const tuKhoa = document.getElementById("tuKhoa").value.trim();
+      if (tuKhoa !== "") {
+        const link = "https://www.google.com/search?q=" + encodeURIComponent(tuKhoa);
+        window.open(link, "_blank"); // mở tab mới
+      }
+      return false; // ngăn reload trang
+    }
+  </script>
+
+</body>
+</html>
